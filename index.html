@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NPERMA SITE</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="background-title">
+            <h3 class="title">NPERMA-SITE</h3>
+        </div>
+        <div class="background loading">
+            <div class="button-container">
+                <button class="button" id="manifest">Manifest Generator</button>
+                <button class="button" id="youtube">Youtube</button>
+                <button class="button" id="group-wa">MCDEV GROUP</button>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#manifest").click(function () {
+                    setTimeout(function () {
+                        window.location.href =
+                            "https://github.com/nperma/nperma.github.io/tree/main/site/manifest-generator.html";
+                    }, 1000);
+                });
+
+                $("#youtube").click(function () {
+                    setTimeout(function () {
+                        window.location.href =
+                            "https://youtube.com/@Nperma?si=tDClozgSYfDis8WR";
+                    }, 1000);
+                });
+
+                $(".button").click(function () {
+                    $(".loading").css("opacity", "0");
+                    setTimeout(function () {
+                        $(".loading").css("opacity", "1");
+                    }, 3000);
+                });
+
+                $("#group-wa").click(function () {
+                    setTimeout(function () {
+                        window.location.href =
+                            "https://chat.whatsapp.com/DvLA5dm50I44OY9WMejoTm";
+                    }, 1000);
+                });
+            });
+        </script>
+    </body>
+</html>
