@@ -13,13 +13,13 @@ html {
 }
 
 .loading {
-    width: 100vw; /* Lebar gambar loading menyesuaikan lebar layar */
-    height: 100vh; /* Tinggi gambar loading menyesuaikan tinggi layar */
-    opacity: 1; /* Awalnya tidak terlihat */
-    transition: opacity 0.8s ease-in; /* Transisi opacity */
-    background-size: contain; /* Ukuran gambar loading menyesuaikan layar */
-    background-position: center; /* Gambar loading terpusat */
-    background-repeat: no-repeat; /* Tidak mengulang gambar */
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    transition: opacity 0.8s ease-in;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .title {
@@ -27,7 +27,7 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgba(128, 128, 128, 0.5); /* Warna abu-abu setengah gelap */
+    color: rgba(128, 128, 128, 0.5);
 }
 
 .background {
@@ -49,26 +49,26 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 8px; /* Tambahkan margin atas 2px */
+    margin-top: 8px;
 }
 
 .button {
     text-decoration: none;
-    padding: 10px 24px; /* Padding untuk ruang di dalam tombol (2px jarak di sumbu Y) */
+    padding: 10px 24px;
     background-color: #555;
     color: white;
     border: 2px solid #aaa;
     border-radius: 20px;
-    text-align: center; /* Text menjadi center */
-    overflow: hidden; /* Untuk membuat efek animasi dari kiri ke kanan */
-    position: relative; /* Position relative untuk membuat child element */
-    width: 280px; /* Lebar tetap tombol */
-    height: 54px; /* Tinggi tetap tombol */
-    display: flex; /* Menggunakan flexbox */
-    justify-content: center; /* Posisi horizontal tengah */
-    align-items: center; /* Posisi vertikal tengah */
-    margin-bottom: 10px; /* Tambahkan margin bawah 4px */
-    box-shadow: 6px 7px 0px rgba(5, 0, 5, 0.5); /* Tambahkan bayangan dengan offset x = 2, y = -4, dan blur 4px */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    width: 280px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    box-shadow: 6px 7px 0px rgba(5, 0, 5, 0.5);
 }
 
 .button:before {
@@ -82,12 +82,12 @@ html {
         to right,
         rgba(255, 255, 255, 0),
         rgba(255, 255, 255, 0.4)
-    ); /* Efek progresif dari kiri ke kanan */
-    transition: left 1s; /* Animasi transisi */
+    );
+    transition: left 1s;
 }
 
 .button:hover:before {
-    left: 100%; /* Menggeser dari kiri ke kanan pada hover */
+    left: 100%;
 }
 
 .button:hover {
@@ -101,7 +101,6 @@ html {
     transition: none;
 }
 
-/* Tambahkan CSS untuk fullscreen image */
 .fullscreen-image {
     display: none;
     position: fixed;
@@ -120,7 +119,7 @@ html {
     display: block;
 }
 
-/* Tambahkan CSS untuk tombol close */
+
 .close-button {
     position: absolute;
     top: 20px;
