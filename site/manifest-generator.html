@@ -1,37 +1,40 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Manifest Generator</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <div class="background">
-            <h2 align="center" class="title">MANIFEST GENERATOR</h2>
-            <p>
-                <label for="name">NAME:</label>
-                <input type="text" id="name" required />
-            </p>
-            <p>
-                <label for="author">AUTHOR:</label>
-                <input type="text" id="author" required />
-            </p>
-            <p>
-                <label for="desc">DESCRIPTION:</label>
-                <input type="text" id="desc" />
-            </p>
-            <p>
-                <label for="scripts">script:</label>
-                <input type="checkbox" id="scripts" />
-            </p>
-            <button onclick="getRequest()">Get Result</button>
-            <button onclick="copyResult()">Copy Result</button>
-            <div id="resultBackground">
-                <div id="resultContainer"></div>
-            </div>
-            <div id="padding"></div>
-            <script src="script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest Generator</title>
+    <link rel="icon" type="image/x-icon" href="/manifest-icon.png" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <h2 align="center" class="title">MANIFEST GENERATOR</h2>
+        <p>
+            <label for="name">NAME:</label>
+            <input type="text" id="name" required>
+            <span id="nameError" class="error"></span>
+        </p>
+        <p>
+            <label for="author">AUTHOR:</label>
+            <input type="text" id="author" required>
+        </p>
+        <p>
+            <label for="desc">DESCRIPTION:</label>
+            <input type="text" id="desc">
+        </p>
+        <p>
+            <label for="scripts">script:</label>
+            <input type="checkbox" id="scripts">
+        </p>
+        <button onclick="getRequest()">Get Result</button>
+        <button onclick="copyResult()">Copy Result</button>
+        <button onclick="downloadResult()">Download Result</button>
+        <div id="resultBackground">
+            <div id="resultContainer"></div>
         </div>
-    </body>
+        <div id="padding"></div>
+        <script src="script.js"></script>
+    </div>
+</body>
 </html>
