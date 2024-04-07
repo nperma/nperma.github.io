@@ -9,7 +9,7 @@ html {
 .background-title {
     position: relative;
     width: 100%;
-    height: calc(100% - 88px); /* Background title dengan tinggi 100% - 88px */
+    height: calc(100% - 88px);
 }
 
 .loading {
