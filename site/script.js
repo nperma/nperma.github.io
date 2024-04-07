@@ -10,8 +10,23 @@ var Navigator = {
     download: false
 };
 
+function toggleScriptsCheckbox() {
+    const packType = document.getElementById("packType").value;
+    const scriptsCheckboxContainer = document.getElementById(
+        "scriptsCheckboxContainer"
+    );
+
+    if (packType === "behavior_pack") {
+        scriptsCheckboxContainer.style.display = "block";
+    } else {
+        scriptsCheckboxContainer.style.display = "none";
+        document.getElementById("scripts").checked = false;
+    }
+}
+
 function getRequest() {
     const name = document.getElementById("name").value;
+    const packType = document.getElementById("packType").value;
     const author = document.getElementById("author").value;
     const desc = document.getElementById("desc").value || "";
     const uuid = generateUUID();
@@ -24,25 +39,57 @@ function getRequest() {
         document.getElementById("nameError").textContent = "";
     }
 
+    let module;
+    if (packType === "resource_pack") {
+      module = [
+    {
+      "type": "resources",
+      "uuid": generateUUID(),
+      "version": [1, 0, 0]
+    }
+  ]
+    } else {
+    module =
+        document.getElementById("scripts").checked == true
+            ? [
+                  {
+                      type: "data",
+                      description: "",
+                      uuid: uuid_module,
+                      version: [1, 0, 0]
+                  },
+                  {
+                      description: "",
+                      uuid: generateUUID(),
+                      version: "1.1.0-beta",
+                      type: "script",
+                      language: "javascript",
+                      entry: "scripts/index/main.js"
+                  }
+              ]
+            : [
+                  {
+                      type: "data",
+                      description: "",
+                      uuid: uuid_module,
+                      version: [1, 0, 0]
+                  }
+              ];
+    }
+
     const data = {
         format_version: 2,
         header: {
             name: name,
             description:
                 (desc.length > 0 ? desc : "") +
-                (author ? ` by @${author}` : ""),
+                (desc.length > 0 && author ? " " : "") +
+                (author ? `by @${author}` : ""),
             uuid: uuid,
             version: [1, 0, 0],
             min_engine_version: [1, 20, 70]
         },
-        modules: [
-            {
-                type: "data",
-                description: "",
-                uuid: uuid_module,
-                version: [1, 0, 0]
-            }
-        ]
+        modules: module
     };
 
     const dependencies = [
@@ -56,9 +103,10 @@ function getRequest() {
         }
     ];
 
-    const res = document.getElementById("scripts").checked
-        ? { ...data, dependencies }
-        : { ...data };
+    const res =
+        document.getElementById("scripts").checked == true
+            ? { ...data, dependencies }
+            : { ...data };
     return displayResult(JSON.stringify(res));
 }
 
@@ -66,8 +114,8 @@ function displayResult(result) {
     const resultContainer = document.getElementById("resultContainer");
     const formattedResult = JSON.stringify(JSON.parse(result), null, 4);
     resultContainer.innerHTML = `<p>${formattedResult}</p>`;
-    
-    Navigator.download=true;
+
+    Navigator.download = true;
 }
 
 function copyResult() {
