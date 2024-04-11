@@ -65,6 +65,9 @@ function getRequest() {
                       type: "script",
                       language: "javascript",
                       entry: "scripts/index/main.js"
+                  },
+                  {
+                    "capabilities": ["script_eval"]
                   }
               ]
             : [
