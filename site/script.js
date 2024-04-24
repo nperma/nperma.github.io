@@ -41,43 +41,43 @@ function getRequest() {
 
     let module;
     if (packType === "resource_pack") {
-      module = [
-    {
-      "type": "resources",
-      "uuid": generateUUID(),
-      "version": [1, 0, 0]
-    }
-  ]
+        module = [
+            {
+                type: "resources",
+                uuid: generateUUID(),
+                version: [1, 0, 0]
+            }
+        ];
     } else {
-    module =
-        document.getElementById("scripts").checked == true
-            ? [
-                  {
-                      type: "data",
-                      description: "",
-                      uuid: uuid_module,
-                      version: [1, 0, 0]
-                  },
-                  {
-                      description: "",
-                      uuid: generateUUID(),
-                      version: "1.1.0-beta",
-                      type: "script",
-                      language: "javascript",
-                      entry: "scripts/index/main.js"
-                  },
-                  {
-                    "capabilities": ["script_eval"]
-                  }
-              ]
-            : [
-                  {
-                      type: "data",
-                      description: "",
-                      uuid: uuid_module,
-                      version: [1, 0, 0]
-                  }
-              ];
+        module =
+            document.getElementById("scripts").checked == true
+                ? [
+                      {
+                          type: "data",
+                          description: "",
+                          uuid: uuid_module,
+                          version: [1, 0, 0]
+                      },
+                      {
+                          description: "",
+                          uuid: generateUUID(),
+                          version: "1.1.0-beta",
+                          type: "script",
+                          language: "javascript",
+                          entry: "scripts/index/main.js"
+                      },
+                      {
+                          capabilities: ["script_eval"]
+                      }
+                  ]
+                : [
+                      {
+                          type: "data",
+                          description: "",
+                          uuid: uuid_module,
+                          version: [1, 0, 0]
+                      }
+                  ];
     }
 
     const data = {
