@@ -65,9 +65,6 @@ function getRequest() {
                           type: "script",
                           language: "javascript",
                           entry: "scripts/index/main.js"
-                      },
-                      {
-                          capabilities: ["script_eval"]
                       }
                   ]
                 : [
@@ -108,7 +105,7 @@ function getRequest() {
 
     const res =
         document.getElementById("scripts").checked == true
-            ? { ...data, dependencies }
+            ? { ...data, dependencies, "capabilities": ["script_eval"] }
             : { ...data };
     return displayResult(JSON.stringify(res));
 }
