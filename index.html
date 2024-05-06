@@ -4,51 +4,29 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>NPERMA SITE</title>
-        <link rel="icon" type="image/x-icon" href="/index-icon.png" />
-        <link rel="stylesheet" href="styles.css" />
+        <!--<link rel="icon" type="image/x-icon" href="/index-icon.png" />-->
+        <link rel="stylesheet" href="ruok.css" />
     </head>
     <body>
-        <div class="background-title">
-            <h3 class="title">NPERMA-SITE</h3>
+        <div class="chefloading">
+            <h3 class="loadmen">🤪</h3>
+            <h3 class="loadmen">WLEE</h3>
         </div>
-        <div class="background loading">
-            <div class="button-container">
-                <button class="button" id="manifest">Manifest Generator</button>
-                <button class="button" id="youtube">Youtube</button>
-                <button class="button" id="group-wa">MCDEV GROUP</button>
+        <div class="chef loading">
+            <div class="doksli">
+                <div class="gambaran">
+                    <img src="sukiimeg.jpeg" alt="Image" />
+                </div>
+                <h1>NPERMA SITE</h1>
             </div>
+            <div class="sangkarbeton">
+                <button class="beton" id="manifestGeneratorMCBE">
+                    Manifest Generator
+                </button>
+                <button class="beton" id="MaiYutub">Youtube</button>
+                <button class="beton" id="MaiGrup">Grup WA</button>
+            </div>
+            <script src="skriptato.js"></script>
         </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#manifest").click(function () {
-                    setTimeout(function () {
-                        window.location.href =
-                            "https://nperma.github.io/site/manifest-generator.html";
-                    }, 1000);
-                });
-
-                $("#youtube").click(function () {
-                    setTimeout(function () {
-                        window.location.href =
-                            "https://youtube.com/@Nperma?si=tDClozgSYfDis8WR";
-                    }, 1000);
-                });
-
-                $(".button").click(function () {
-                    $(".loading").css("opacity", "0");
-                    setTimeout(function () {
-                        $(".loading").css("opacity", "1");
-                    }, 3000);
-                });
-
-                $("#group-wa").click(function () {
-                    setTimeout(function () {
-                        window.location.href =
-                            "https://chat.whatsapp.com/DvLA5dm50I44OY9WMejoTm";
-                    }, 1000);
-                });
-            });
-        </script>
     </body>
 </html>
