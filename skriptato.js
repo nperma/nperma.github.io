@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const a = document.getElementById("manifestGeneratorMCBE");
 const b = document.getElementById("MaiYutub");
 const c = document.getElementById("MaiGrup");
+const d = document.getElementById("MaiMcpedl");
 
 a.addEventListener("click", () => {
     setTimeout(() => {
@@ -34,5 +35,11 @@ b.addEventListener("click", () => {
 c.addEventListener("click", () => {
     setTimeout(() => {
         window.location.href = "https://chat.whatsapp.com/DvLA5dm50I44OY9WMejoTm";
+    }, 1000);
+});
+
+d.addEventListener("click", () => {
+    setTimeout(() => {
+        window.location.href = "https://mcpedl.com/user/nperma/";
     }, 1000);
 });
