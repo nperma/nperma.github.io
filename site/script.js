@@ -54,7 +54,7 @@ function getRequest() {
                 ? [
                       {
                           type: "data",
-                          description: "",
+                          description: "For Support Realm and Server",
                           uuid: uuid_module,
                           version: [1, 0, 0]
                       },
@@ -70,7 +70,7 @@ function getRequest() {
                 : [
                       {
                           type: "data",
-                          description: "",
+                          description: "For Support Realm and Server",
                           uuid: uuid_module,
                           version: [1, 0, 0]
                       }
@@ -87,7 +87,7 @@ function getRequest() {
                 (author ? `by @${author}` : ""),
             uuid: uuid,
             version: [1, 0, 0],
-            min_engine_version: [1, 20, 70]
+            min_engine_version: [1, 21, 0]
         },
         modules: module
     };
@@ -95,7 +95,7 @@ function getRequest() {
     const dependencies = [
         {
             module_name: "@minecraft/server",
-            version: "1.11.0-beta"
+            version: "1.12.0-beta"
         },
         {
             module_name: "@minecraft/server-ui",
