@@ -237,7 +237,7 @@ function createSidebarButtons(buttonsMap) {
                 buttonsMap = new Map([
                     ["Home", "/"],
                     ["GitProfile", "#gitprofile"],
-                    ["Manifest Generator", "#manifest"]
+                    ["Manifest Generator", "https://github.com/nperma/nperma.github.io/blob/main/site/manifest-generator.html"]
                 ]);
                 createSidebarButtons(buttonsMap);
             } else if (name === "GitProfile") {
