@@ -241,7 +241,6 @@ function createSidebarButtons(buttonsMap) {
                 ]);
                 createSidebarButtons(buttonsMap);
             } else if (name === "GitProfile") {
-                
                 const inputPopupContent = `
         <div style="background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
             <h3 style="color: white;">Enter GitHub Username:</h3>
@@ -327,12 +326,12 @@ function createSidebarButtons(buttonsMap) {
                         });
                     }
                 };
-                
-            }else if(name==="Manifest Generator"){
-              showPopup({
-                title: "POPUP",
-                content: "manifest generator form under development, old version: https://nperma.github.io/site/manifest-generator.html"
-              })
+            } else if (name === "Manifest Generator") {
+                showPopup({
+                    title: "POPUP",
+                    content:
+                        "manifest generator form under development, old version: https://nperma.github.io/site/manifest-generator.html"
+                });
             } else if (name === "GitHub") {
                 const username = "nperma";
                 try {
