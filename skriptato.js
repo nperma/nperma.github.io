@@ -237,7 +237,7 @@ function createSidebarButtons(buttonsMap) {
                 buttonsMap = new Map([
                     ["Home", "/"],
                     ["GitProfile", "#gitprofile"],
-                    ["Manifest Generator", "https://nperma.github.io/site/manifest-generator.html"]
+                    ["Manifest Generator", "#manifest"]
                 ]);
                 createSidebarButtons(buttonsMap);
             } else if (name === "GitProfile") {
@@ -327,6 +327,12 @@ function createSidebarButtons(buttonsMap) {
                         });
                     }
                 };
+                
+            }else if(name==="Manifest Generator"){
+              showPopup({
+                title: "POPUP",
+                content: "manifest generator form under development, old version: https://nperma.github.io/site/manifest-generator.html"
+              })
             } else if (name === "GitHub") {
                 const username = "nperma";
                 try {
