@@ -237,11 +237,11 @@ function createSidebarButtons(buttonsMap) {
                 buttonsMap = new Map([
                     ["Home", "/"],
                     ["GitProfile", "#gitprofile"],
-                    ["Manifest Generator", "https://github.com/nperma/nperma.github.io/blob/main/site/manifest-generator.html"]
+                    ["Manifest Generator", "https://nperma.github.io/site/manifest-generator.html"]
                 ]);
                 createSidebarButtons(buttonsMap);
             } else if (name === "GitProfile") {
-                // Create the content for the input popup
+                
                 const inputPopupContent = `
         <div style="background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
             <h3 style="color: white;">Enter GitHub Username:</h3>
