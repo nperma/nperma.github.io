@@ -104,7 +104,7 @@ async function fetchGitHubProfile(username) {
         const data = await response.json();
 
         const profileData = {
-            username: data.login,
+            username: data.login??data.name?.replace(/\@/g, ""),
             name: data.name,
             bio: data.bio,
             public_repos: data.public_repos,
