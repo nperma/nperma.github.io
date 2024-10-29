@@ -98,7 +98,7 @@ async function fetchGitHubProfile(username) {
         const data = await response.json();
 
         const profileData = {
-            username: data.login,
+            username: data.login ?? data.name.replace(/\@/g, ""),
             name: data.name,
             bio: data.bio,
             public_repos: data.public_repos,
@@ -709,8 +709,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         "block";
                     document.getElementById("showResultButton").textContent =
                         "Reload";
-                    // Tambahkan tombol Copy di sini
-                    const copyManifestButton = document.createElement("button");
+
+                    const copyManifestButton =
+                        document.getElementById("copyManifestButton") ||
+                        document.createElement("button");
                     copyManifestButton.id = "copyManifestButton";
                     copyManifestButton.style.backgroundColor = "#4CAF50";
                     copyManifestButton.style.color = "white";
@@ -726,7 +728,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     copyManifestButton.addEventListener("click", () => {
                         navigator.clipboard.writeText(manifestJson).then(() => {
-                            showPopup({title:"",content:"Manifest rawcode copied to clipboard!"});
+                            showPopup({
+                                title: "",
+                                content: "Manifest rawcode copied to clipboard!"
+                            });
                         });
                     });
                 });
