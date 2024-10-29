@@ -726,7 +726,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     copyManifestButton.addEventListener("click", () => {
                         navigator.clipboard.writeText(manifestJson).then(() => {
-                            alert("Manifest rawcode copied to clipboard!");
+                            showPopup({title:"",content:"Manifest rawcode copied to clipboard!"});
                         });
                     });
                 });
