@@ -210,6 +210,79 @@ function closeSidebar(sidebar, toggleBtn) {
     toggleBtn.style.left = "0px";
 }
 
+const getMinecraftLatest = async (module = "@minecraft/server") => {
+    try {
+        const response = await fetch(`https://registry.npmjs.org/${module}`);
+        if (!response.ok)
+            throw new Error(
+                `Network response was not ok: ${response.statusText}`
+            );
+
+        const data = await response.json();
+        let versions = data.versions ? Object.keys(data.versions) : [];
+
+        let filteredVersions = versions.filter(version =>
+            version.includes("-stable")
+        );
+        if (filteredVersions.length === 0)
+            throw new Error("No stable version found");
+
+        const sortVersions = () => {
+            return filteredVersions
+                .sort((a, b) => {
+                    const aParts = a
+                        .split("-")[1]
+                        .split("beta.")[1]
+                        .split("-stable")[0]
+                        .split(".")
+                        .map(Number);
+                    const bParts = b
+                        .split("-")[1]
+                        .split("beta.")[1]
+                        .split("-stable")[0]
+                        .split(".")
+                        .map(Number);
+
+                    for (let i = 0; i < 3; i++) {
+                        if (aParts[i] > bParts[i]) return -1;
+                        if (aParts[i] < bParts[i]) return 1;
+                    }
+                    return 0;
+                })
+                .map(version => version);
+        };
+
+        const latestVersions = [
+            sortVersions()[0].split("-stable")[0].split("beta.")[0] + "beta",
+            ...versions
+                .filter(
+                    version =>
+                        !["-beta", "-stable", "-preview", "-internal"].some(
+                            flag => version.includes(flag)
+                        )
+                )
+                .sort((a, b) => {
+                    const aParts = a.split(".").map(Number);
+                    const bParts = b.split(".").map(Number);
+
+                    for (let i = 0; i < 3; i++) {
+                        if (aParts[i] > bParts[i]) return -1;
+                        if (aParts[i] < bParts[i]) return 1;
+                    }
+                    return 0;
+                })
+        ];
+
+        return [
+            sortVersions()[0].split("-stable")[0].split("beta.")[1],
+            latestVersions
+        ];
+    } catch (error) {
+        console.error("Error fetching Minecraft versions:", error);
+        throw error;
+    }
+};
+
 function createSidebarButtons(buttonsMap) {
     const sidebarContent = document.getElementById("sidebarContent");
     const sidebar = document.getElementById("sidebar");
@@ -237,7 +310,7 @@ function createSidebarButtons(buttonsMap) {
                 buttonsMap = new Map([
                     ["Home", "/"],
                     ["GitProfile", "#gitprofile"],
-                    ["Manifest Generator", "#manifest"]
+                    ["Manifest Generator", "/manifest/index.html"]
                 ]);
                 createSidebarButtons(buttonsMap);
             } else if (name === "GitProfile") {
@@ -326,12 +399,6 @@ function createSidebarButtons(buttonsMap) {
                         });
                     }
                 };
-            } else if (name === "Manifest Generator") {
-                showPopup({
-                    title: "POPUP",
-                    content:
-                        "manifest generator form under development, old version: https://nperma.github.io/site/manifest-generator.html"
-                });
             } else if (name === "GitHub") {
                 const username = "nperma";
                 try {
