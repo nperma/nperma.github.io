@@ -669,7 +669,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         document.getElementById("manifestDescription").value ||
                         "Example Manifest";
                     const manifestJson = `{
-                "format_version": "2",
+                "format_version": 2,
                 "header": {
                   "name": "${manifestName}",
                     "description": "${manifestDescription}",
